@@ -14,3 +14,7 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Project Description
+
+An inventory management frontend application that allows traders to track product stock levels and sales. Users can add products with their name, price, and quantity. When a sale is made, the system deducts the sold quantity from inventory and calculates the total revenue generated. The app also alerts users when stock falls below a defined threshold.
