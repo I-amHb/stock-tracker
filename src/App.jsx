@@ -19,7 +19,7 @@ function App() {
       id: '2',
       name: 'Rice',
       price: 10000,
-      quantity: 10,
+      quantity: 4,
       threshold: 5,
 
     },

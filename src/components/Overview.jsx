@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Overview = (appData) => {
+const Overview = ({totalProd, totalStockVal}) => {
     return (
         <section className='w-full p-padding-sm flex flex-col gap-8'>
             <div className='flex flex-col gap-4'>
@@ -10,7 +10,7 @@ const Overview = (appData) => {
                     </div>
                     <div className='flex flex-col'>
                         <p>Total Products</p>
-                        <h1 className='text-mid font-bold'>{appData.totalProd}</h1>
+                        <h1 className='text-mid font-bold'>{totalProd}</h1>
                     </div>
                 </div>
                 <div className='totatl-product bg-bgCard p-padding-sm rounded-2xl shadow flex gap-3'>
@@ -19,7 +19,7 @@ const Overview = (appData) => {
                     </div>
                     <div className='flex flex-col'>
                         <p>Total Stock Value</p>
-                        <h1 className='text-mid font-bold'>&#8358;{appData.totalStockVal}</h1>
+                        <h1 className='text-mid font-bold'>&#8358;{totalStockVal.toLocaleString()}</h1>
                     </div>
                 </div>
                 <div className='totatl-product bg-bgCard p-padding-sm rounded-2xl shadow flex gap-3'>
@@ -28,7 +28,7 @@ const Overview = (appData) => {
                     </div>
                     <div className='flex flex-col'>
                         <p>Total Revenue</p>
-                        <h1 className='text-mid font-bold'>&#8358; 20</h1>
+                        <h1 className='text-mid font-bold'>&#8358;0</h1>
                     </div>
                 </div>
             </div>
