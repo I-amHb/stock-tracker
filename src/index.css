@@ -44,8 +44,8 @@ body {
 
   /* Spacing */
 
-  --spacing-padding-lg: 75px;
-  --spacing-padding-md: 62px;
-  --spacing-padding-smid: 42px;
-  --spacing-padding-sm: 22px;
+  --spacing-padding-lg: 72px;
+  --spacing-padding-md: 60px;
+  --spacing-padding-smid: 40px;
+  --spacing-padding-sm: 20px;
 }
