@@ -2,10 +2,12 @@ import { useState } from "react"
 import Header from './components/Header'
 import Overview from './components/Overview'
 import ProductTable from './components/ProductTable'
+import AddProductForm from './components/AddProductForm';
 
 
 function App() {
   
+  const [showProdForm, setShowProdForm] = useState(false);
   const [productList, setProductList] = useState([
     {
       id: '1',
@@ -47,12 +49,16 @@ function App() {
       <Overview
         totalProd={totalProducts()}
         totalStockVal={totalStockValue()}
-
-        
+        setShowProdForm={setShowProdForm}
       />
       <ProductTable
         prod={productList}
       />
+
+      {showProdForm && (
+        <AddProductForm
+        setShowProdForm={setShowProdForm}/>
+      )}
     </div>
   )
 }

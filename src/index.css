@@ -42,6 +42,8 @@ body {
   --color-txtSec: #6B7280;
   --color-txtMuted: #9CA3AF;
 
+  --color-bgInput: #f0f0f1;
+
   /* Spacing */
 
   --spacing-padding-lg: 72px;
