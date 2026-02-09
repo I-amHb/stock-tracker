@@ -34,12 +34,12 @@ function App() {
     }
     return productPriceSum;
   };
-  console.log(totalStockValue());
+  // console.log(totalStockValue());
   const totalProducts = () => productList.length;
-  console.log(totalProducts());
+  // console.log(totalProducts());
 
 
-  // const totalRevenue = () => { };
+  // const totalRevenue = () => {};
 
 
 
@@ -57,7 +57,8 @@ function App() {
 
       {showProdForm && (
         <AddProductForm
-        setShowProdForm={setShowProdForm}/>
+        setShowProdForm={setShowProdForm}
+        setProductList={setProductList}/>
       )}
     </div>
   )

@@ -36,10 +36,10 @@ const Overview = ({totalProd, totalStockVal, setShowProdForm}) => {
             <div className='w-full md:w-1/2 flex md:flex-col gap-2 text-white'>
                 <button
                     onClick={()=>setShowProdForm(true)}
-                    className='bg-primary hover:bg-primaryHvr w-1/2 md:h-1/2 md:w-full h-15 rounded-xl shadow'>Add New Product</button>
+                    className='bg-primary hover:bg-primaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Add New Product</button>
                 <button
                     // onClick={}
-                    className='bg-secondary hover:bg-secondaryHvr w-1/2 md:h-1/2 md:w-full h-15 rounded-xl shadow'>Checkout</button>
+                    className='bg-secondary hover:bg-secondaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Checkout</button>
             </div>
             
         </section>
