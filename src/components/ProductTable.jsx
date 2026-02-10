@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ProductTable = ({ prod }) => {
+const ProductTable = ({ prod, onCheckout }) => {
 
     const prodList = prod.map((val) => {
 
@@ -16,7 +16,9 @@ const ProductTable = ({ prod }) => {
                     }
                 </td>
                 <td>
-                    <button className='bg-secondary text-white w-24 rounded-sm '>Checkout</button>
+                    <button 
+                    onClick={() => onCheckout(val)}
+                    className='bg-secondary text-white w-24 rounded-sm '>Checkout</button>
                 </td>
             </tr>
         )

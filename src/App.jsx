@@ -3,11 +3,14 @@ import Header from './components/Header'
 import Overview from './components/Overview'
 import ProductTable from './components/ProductTable'
 import AddProductForm from './components/AddProductForm';
+import CheckoutForm from "./components/CheckoutForm";
 
 
 function App() {
-  
+
   const [showProdForm, setShowProdForm] = useState(false);
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+  const [selectedProductForCheckout, setSelectedProductForCheckout] = useState(null);
   const [productList, setProductList] = useState([
     {
       id: '1',
@@ -34,12 +37,13 @@ function App() {
     }
     return productPriceSum;
   };
-  // console.log(totalStockValue());
   const totalProducts = () => productList.length;
-  // console.log(totalProducts());
-
-
   // const totalRevenue = () => {};
+
+  const openCheckoutForProduct = (product) => {
+    setSelectedProductForCheckout(product);
+    setShowCheckoutForm(true)
+  }
 
 
 
@@ -50,15 +54,27 @@ function App() {
         totalProd={totalProducts()}
         totalStockVal={totalStockValue()}
         setShowProdForm={setShowProdForm}
+        setShowCheckoutForm={setShowCheckoutForm}
+        setSelectedProductForCheckout={setSelectedProductForCheckout}
       />
       <ProductTable
         prod={productList}
+        onCheckout={openCheckoutForProduct}
       />
 
       {showProdForm && (
         <AddProductForm
-        setShowProdForm={setShowProdForm}
-        setProductList={setProductList}/>
+          setShowProdForm={setShowProdForm}
+          setProductList={setProductList} />
+      )}
+
+      {showCheckoutForm && (
+        <CheckoutForm
+          isOpen={showCheckoutForm}
+          onClose={() => setShowCheckoutForm(false)}
+          preSelectedProduct={selectedProductForCheckout}
+          setProductList={setProductList}
+        />
       )}
     </div>
   )

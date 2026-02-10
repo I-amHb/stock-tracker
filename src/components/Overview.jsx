@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Overview = ({totalProd, totalStockVal, setShowProdForm}) => {
+const Overview = ({totalProd, totalStockVal, setShowProdForm, setShowCheckoutForm, setSelectedProductForCheckout}) => {
 
     return (
         <section className='w-full p-padding-sm flex flex-col md:flex-row gap-8'>
@@ -38,7 +38,9 @@ const Overview = ({totalProd, totalStockVal, setShowProdForm}) => {
                     onClick={()=>setShowProdForm(true)}
                     className='bg-primary hover:bg-primaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Add New Product</button>
                 <button
-                    // onClick={}
+                    onClick={() => {
+                        setSelectedProductForCheckout(null);
+                        setShowCheckoutForm(true)}}
                     className='bg-secondary hover:bg-secondaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Checkout</button>
             </div>
             
