@@ -3,11 +3,43 @@ import React, { useState } from 'react'
 const CheckoutForm = ({
     isOpen,
     onClose,
-    preSelectedProduct,     // ← renamed for clarity (the product object or null)
-    setProductList          // ← we'll use later for updating stock
+    preSelectedProduct,  
+    setProductList,          
+    setTotalRevenue
 }) => {
 
     const [sellQuantity, setSellQuantity] = useState('');
+
+    const handleConfirm = () => {
+        if (!product) return;
+
+        const qty = Number(sellQuantity);
+
+        if (isNaN(qty) || qty <= 0) {
+            alert('Please enter a valid quantity(greater than 0) ');
+            return;
+        }
+        if (qty > product.quantity) {
+            alert(`Cannot sell more than curren stock (${product.quantity})`)
+        }
+
+        // update product list immutably 
+
+        setProductList(prevList => 
+            prevList.map(p => 
+                p.id === product.id ?
+                {...p, quntity: p.quntity - qty}
+                : p
+            )
+        )
+
+        const saleValue = qty * product.price;
+        setTotalRevenue(prev => prev +saleValue);
+
+        setSellQuantity('');
+        onClose();
+
+    }
 
     if (!isOpen) return null;
 
@@ -18,7 +50,7 @@ const CheckoutForm = ({
             <div className='bg-bgCard min-w-70 w-100 rounded-2xl p-padding-sm'>
                 <div className='flex justify-between mb-padding-sm'>
                     <h1 className='text-mid font-bold text-primary'>Checkout</h1>
-                    <button onClick={() => setShowCheckoutForm(false)} className='cursor-pointer flex justify-center items-center rounded-md w-10 bg-bgApp hover:bg-danger' >
+                    <button onClick={onClose} className='cursor-pointer flex justify-center items-center rounded-md w-10 bg-bgApp hover:bg-danger' >
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" /></svg>
                     </button>
                 </div>
@@ -58,7 +90,7 @@ const CheckoutForm = ({
                         Cancel
                     </button>
                     <button
-                        // onClick={handleConfirm} ← we'll add this in next step
+                        onClick={handleConfirm} // ← we'll add this in next step
                         className='px-4 py-2 bg-primary text-white rounded hover:bg-primaryHvr'
                         disabled={!sellQuantity || !product}
                     >

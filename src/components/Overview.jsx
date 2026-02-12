@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 
-const Overview = ({totalProd, totalStockVal, setShowProdForm, setShowCheckoutForm, setSelectedProductForCheckout}) => {
+const Overview = ({
+    totalProd,
+    totalStockVal,
+    totalRevenue,
+    setShowProdForm,
+    setShowCheckoutForm,
+    setSelectedProductForCheckout
+}) => {
 
     return (
         <section className='w-full p-padding-sm flex flex-col md:flex-row gap-8'>
@@ -29,21 +36,22 @@ const Overview = ({totalProd, totalStockVal, setShowProdForm, setShowCheckoutFor
                     </div>
                     <div className='flex flex-col'>
                         <p>Total Revenue</p>
-                        <h1 className='text-mid font-bold'>&#8358;0</h1>
+                        <h1 className='text-mid font-bold'>&#8358;{totalRevenue.toLocaleString()}</h1>
                     </div>
                 </div>
             </div>
             <div className='w-full md:w-1/2 flex md:flex-col gap-2 text-white'>
                 <button
-                    onClick={()=>setShowProdForm(true)}
+                    onClick={() => setShowProdForm(true)}
                     className='bg-primary hover:bg-primaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Add New Product</button>
                 <button
                     onClick={() => {
                         setSelectedProductForCheckout(null);
-                        setShowCheckoutForm(true)}}
+                        setShowCheckoutForm(true)
+                    }}
                     className='bg-secondary hover:bg-secondaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Checkout</button>
             </div>
-            
+
         </section>
     )
 }

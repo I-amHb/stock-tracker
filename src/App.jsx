@@ -11,6 +11,7 @@ function App() {
   const [showProdForm, setShowProdForm] = useState(false);
   const [showCheckoutForm, setShowCheckoutForm] = useState(false);
   const [selectedProductForCheckout, setSelectedProductForCheckout] = useState(null);
+  const [totalRevenue, setTotalRevenue] = useState(0);
   const [productList, setProductList] = useState([
     {
       id: '1',
@@ -53,6 +54,7 @@ function App() {
       <Overview
         totalProd={totalProducts()}
         totalStockVal={totalStockValue()}
+        totalRevenue={totalRevenue}
         setShowProdForm={setShowProdForm}
         setShowCheckoutForm={setShowCheckoutForm}
         setSelectedProductForCheckout={setSelectedProductForCheckout}
@@ -74,6 +76,7 @@ function App() {
           onClose={() => setShowCheckoutForm(false)}
           preSelectedProduct={selectedProductForCheckout}
           setProductList={setProductList}
+          setTotalRevenue={setTotalRevenue}
         />
       )}
     </div>
