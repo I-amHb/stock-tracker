@@ -11,6 +11,8 @@ const CheckoutForm = ({
     const [sellQuantity, setSellQuantity] = useState('');
 
     const handleConfirm = () => {
+        const product = preSelectedProduct;
+
         if (!product) return;
 
         const qty = Number(sellQuantity);
@@ -28,13 +30,13 @@ const CheckoutForm = ({
         setProductList(prevList => 
             prevList.map(p => 
                 p.id === product.id ?
-                {...p, quntity: p.quntity - qty}
+                {...p, quantity: p.quantity - qty}
                 : p
             )
         )
 
         const saleValue = qty * product.price;
-        setTotalRevenue(prev => prev +saleValue);
+        setTotalRevenue(prev => prev + saleValue);
 
         setSellQuantity('');
         onClose();
@@ -90,7 +92,7 @@ const CheckoutForm = ({
                         Cancel
                     </button>
                     <button
-                        onClick={handleConfirm} // ← we'll add this in next step
+                        onClick={handleConfirm}
                         className='px-4 py-2 bg-primary text-white rounded hover:bg-primaryHvr'
                         disabled={!sellQuantity || !product}
                     >
