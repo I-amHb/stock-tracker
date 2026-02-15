@@ -63,9 +63,9 @@ const CheckoutForm = ({
                         <p>Price per unit: ₦{product.price.toLocaleString()}</p>
                     </div>
                 ) : (
-                    <p className='mb-4 text-center text-gray-600'>
-                        Select a product first (coming soon: search here)
-                    </p>
+                    <div className='[&>input]:bg-bgInput [&>input]:h-10 [&>input]:w-full [&>input]:rounded-sm [&>input]:px-3'>
+                        <input type="text" placeholder='Search product' />
+                    </div>
                 )}
 
                 {/* Quantity Input */}
