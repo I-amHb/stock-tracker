@@ -9,6 +9,16 @@ const CheckoutForm = ({
 }) => {
 
     const [sellQuantity, setSellQuantity] = useState('');
+    const [searchInput, setSearchInput] = useState('');
+
+    const handleFilter = () => {
+        
+        const searchedVal = searchInput;
+
+        if (!searchedVal) return;
+
+        
+    }
 
     const handleConfirm = () => {
         const product = preSelectedProduct;
@@ -64,7 +74,7 @@ const CheckoutForm = ({
                     </div>
                 ) : (
                     <div className='[&>input]:bg-bgInput [&>input]:h-10 [&>input]:w-full [&>input]:rounded-sm [&>input]:px-3'>
-                        <input type="text" placeholder='Search product' />
+                        <input name='search' value={searchInput} type="text" placeholder='Search product' />
                     </div>
                 )}
 
