@@ -75,6 +75,7 @@ function App() {
           isOpen={showCheckoutForm}
           onClose={() => setShowCheckoutForm(false)}
           preSelectedProduct={selectedProductForCheckout}
+          prod={productList}
           setProductList={setProductList}
           setTotalRevenue={setTotalRevenue}
         />

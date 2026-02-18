@@ -3,21 +3,22 @@ import React, { useState } from 'react'
 const CheckoutForm = ({
     isOpen,
     onClose,
-    preSelectedProduct,  
-    setProductList,          
+    preSelectedProduct,
+    prod,
+    setProductList,
     setTotalRevenue
 }) => {
 
     const [sellQuantity, setSellQuantity] = useState('');
     const [searchInput, setSearchInput] = useState('');
 
-    const handleFilter = () => {
-        
-        const searchedVal = searchInput;
 
-        if (!searchedVal) return;
 
-        
+    let results = [];
+    if (searchInput.trim() !== '') {
+        results = prod.filter(val =>
+            val.name.toLowerCase().includes(searchInput.toLowerCase())
+        );
     }
 
     const handleConfirm = () => {
@@ -37,11 +38,11 @@ const CheckoutForm = ({
 
         // update product list immutably 
 
-        setProductList(prevList => 
-            prevList.map(p => 
+        setProductList(prevList =>
+            prevList.map(p =>
                 p.id === product.id ?
-                {...p, quantity: p.quantity - qty}
-                : p
+                    { ...p, quantity: p.quantity - qty }
+                    : p
             )
         )
 
@@ -74,7 +75,14 @@ const CheckoutForm = ({
                     </div>
                 ) : (
                     <div className='[&>input]:bg-bgInput [&>input]:h-10 [&>input]:w-full [&>input]:rounded-sm [&>input]:px-3'>
-                        <input name='search' value={searchInput} type="text" placeholder='Search product' />
+                        <input name='search'
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            type="text"
+                            placeholder='Search product' />
+                        {results.length > 0 ?
+                            <ul>{results.map((result) => <li key={result.id}>{result.name}</li>)}</ul> : ''
+                        }
                     </div>
                 )}
 
