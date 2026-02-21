@@ -6,7 +6,8 @@ const CheckoutForm = ({
     preSelectedProduct,
     prod,
     setProductList,
-    setTotalRevenue
+    setTotalRevenue,
+    onCheckout
 }) => {
 
     const [sellQuantity, setSellQuantity] = useState('');
@@ -81,8 +82,15 @@ const CheckoutForm = ({
                             type="text"
                             placeholder='Search product' />
                         {results.length > 0 ?
-                            <ul>{results.map((result) => <li key={result.id}>{result.name}</li>)}</ul> : ''
-                        }
+                            <ul>{results.map((result) => <li key={result.id}><a onClick={() => {
+                                onCheckout(result)
+                            setSearchInput('')}} >
+                                {result.name} - Stock: {result.quantity}</a></li>)}</ul> : 
+                            searchInput.trim() !== '' ? (
+                            <p>No results found</p>
+                        ) : (
+                            
+                            '' )}
                     </div>
                 )}
 

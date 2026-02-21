@@ -78,6 +78,7 @@ function App() {
           prod={productList}
           setProductList={setProductList}
           setTotalRevenue={setTotalRevenue}
+          onCheckout={openCheckoutForProduct}
         />
       )}
     </div>

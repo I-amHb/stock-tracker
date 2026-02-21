@@ -4,6 +4,10 @@ body {
   background-color: #F9FAFB;
 }
 
+a, button {
+  cursor: pointer;
+}
+
 @theme {
   /* Fonts/Typography */
   --font-weight-Exbold: 700;
