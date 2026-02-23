@@ -10,9 +10,13 @@ const Overview = ({
 }) => {
 
     return (
-        <section className='w-full p-padding-sm flex flex-col md:flex-row gap-8'>
-            <div className='w-full md:w-1/2 flex flex-col gap-4 md:gap-0'>
-                <div className='totatl-product bg-bgCard p-padding-sm rounded-2xl md:rounded-none shadow flex gap-3'>
+        <section className='w-full p-padding-sm flex flex-col md:flex-row gap-8 lg:gap-4
+        lg:grid lg:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] '>
+            <div className='w-full md:w-1/2 lg:w-full flex flex-col gap-4 md:gap-0 col-start-1  col-end-4
+            lg:p-1 lg:flex-row lg:rounded-2xl lg:shadow lg:bg-bgCard lg:[&>div]:w-full
+             lg:[&>div]:bg-inherit lg:[&>div]:shadow-none '>
+                
+               <div className='totatl-product bg-bgCard p-padding-sm rounded-2xl md:rounded-none shadow flex gap-3'>
                     <div className=' w-padding-md h-padding-md bg-primarySoft rounded-full flex justify-center items-center'>
                         <svg width="50px" height="50px" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 13V22M12.5 13L4.5 8M12.5 13L20.5 8M8.5 5.5L16.5 10.5M4.5 8L12.5 3L20.5 8V17L12.5 22L4.5 17V8Z" stroke="#22C55E" strokeWidth="1.2" /></svg>
                     </div>
@@ -21,7 +25,7 @@ const Overview = ({
                         <h1 className='text-mid font-bold'>{totalProd}</h1>
                     </div>
                 </div>
-                <div className='totatl-product bg-bgCard p-padding-sm rounded-2xl md:rounded-none shadow flex gap-3'>
+                <div className='totatl-product bg-bgCard p-padding-sm rounded-2xl md:rounded-none shadow flex gap-3 lg:border-x lg:border-x-gray-600 '>
                     <div className=' w-padding-md h-padding-md bg-primarySoft rounded-full flex justify-center items-center'>
                         <svg fill="#22C55E" width="40px" height="40px" viewBox="0 0 64 64" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><title /><path d="M61,17H3a1,1,0,0,0-1,1V46a1,1,0,0,0,1,1H61a1,1,0,0,0,1-1V18A1,1,0,0,0,61,17ZM4,19H9.929A7.018,7.018,0,0,1,4,24.929ZM4,45V39.071A7.018,7.018,0,0,1,9.929,45Zm56,0H54.071A7.018,7.018,0,0,1,60,39.071Zm0-7.941A9.013,9.013,0,0,0,52.059,45H11.941A9.013,9.013,0,0,0,4,37.059V26.941A9.013,9.013,0,0,0,11.941,19H52.059A9.013,9.013,0,0,0,60,26.941Zm0-12.13A7.018,7.018,0,0,1,54.071,19H60Z" /><path d="M37,23H35v6H31.571l-2.683-5.174a1,1,0,0,0-1.888.46V29H24v2h3v2H24v2h3v6h2V35h3.429l2.683,5.174A1,1,0,0,0,37,39.714V35h3V33H37V31h3V29H37Zm-8,5.387.318.613H29ZM29,33V31h1.355l1.037,2Zm6,2.613L34.682,35H35ZM35,33H33.645l-1.037-2H35Z" /></svg>
                     </div>
@@ -40,16 +44,20 @@ const Overview = ({
                     </div>
                 </div>
             </div>
-            <div className='w-full md:w-1/2 flex md:flex-col gap-2 text-white'>
+            <div className='w-full md:w-1/2 flex md:flex-col gap-2 text-white col-start-4 col-end-5 row-span-1 lg:rounded-xl
+            lg:border lg:w-full lg:gap-0 lg:flex-row lg:[&>button]:w-full lg:[&>button]:m-x-0 lg:[&>button]:h-full '>
                 <button
                     onClick={() => setShowProdForm(true)}
-                    className='bg-primary hover:bg-primaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Add New Product</button>
+                    className='bg-primary hover:bg-primaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md  rounded-xl shadow 
+                    lg:rounded-none lg:rounded-l-xl lg:rounded-r-0 '>
+                    + Add New Product</button>
                 <button
                     onClick={() => {
                         setSelectedProductForCheckout(null);
                         setShowCheckoutForm(true)
                     }}
-                    className='bg-secondary hover:bg-secondaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow'>Checkout</button>
+                    className='bg-secondary hover:bg-secondaryHvr w-1/2 md:h-1/2 md:w-full h-padding-md rounded-xl shadow
+                    lg:rounded-none lg:rounded-r-xl lg:rounded-l-0 '>Checkout</button>
             </div>
 
         </section>

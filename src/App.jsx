@@ -13,23 +13,56 @@ function App() {
   const [selectedProductForCheckout, setSelectedProductForCheckout] = useState(null);
   const [totalRevenue, setTotalRevenue] = useState(0);
   const [productList, setProductList] = useState([
-    {
-      id: '1',
-      name: 'Lipton Pack',
-      price: 950,
-      quantity: 40,
-      threshold: 5,
-
-    },
-    {
-      id: '2',
-      name: 'Rice',
-      price: 10000,
-      quantity: 4,
-      threshold: 5,
-
-    },
-  ]);
+  {
+    id: '1',
+    name: 'Lipton Pack',
+    price: 950,
+    quantity: 40,
+    threshold: 5,
+  },
+  {
+    id: '2',
+    name: 'Rice',
+    price: 10000,
+    quantity: 4,
+    threshold: 5,
+  },
+  {
+    id: '3',
+    name: 'Indomie Noodles (Carton)',
+    price: 7500,
+    quantity: 25,
+    threshold: 10,
+  },
+  {
+    id: '4',
+    name: 'Golden Morn',
+    price: 3200,
+    quantity: 18,
+    threshold: 5,
+  },
+  {
+    id: '5',
+    name: 'Peak Milk (Tin)',
+    price: 1200,
+    quantity: 60,
+    threshold: 15,
+  },
+  {
+    id: '6',
+    name: 'Sugar (1kg)',
+    price: 1800,
+    quantity: 12,
+    threshold: 5,
+  },
+  {
+    id: '7',
+    name: 'Vegetable Oil (5L)',
+    price: 8500,
+    quantity: 9,
+    threshold: 3,
+  },
+]);
 
   const totalStockValue = () => {
     let productPriceSum = 0;

@@ -26,7 +26,7 @@ const ProductTable = ({ prod, onCheckout }) => {
 
 
     return (
-        <section className='w-full p-padding-sm flex flex-col gap-8'>
+        <section className='w-full px-padding-sm flex flex-col gap-8'>
             <div className='table-container w-full bg-bgCard shadow flex flex-col gap-2 rounded-2xl'>
                 <div className='flex justify-between p-2.5 '>
                     <h1 className='text-mid font-bold'>Products</h1>

@@ -3,7 +3,7 @@ import SearchBar from './SearchBar'
 
 const Header = () => {
   return (
-    <header className='w-full p-padding-sm bg-bgCard md:flex justify-between items-center'>
+    <header className='w-full px-padding-sm py-2 bg-bgCard md:flex justify-between items-center'>
         <h1 className='text-mid font-bold text-center'>StockTracker</h1>
         <div>
             <SearchBar />
