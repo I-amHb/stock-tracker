@@ -35,6 +35,7 @@ const CheckoutForm = ({
         }
         if (qty > product.quantity) {
             alert(`Cannot sell more than curren stock (${product.quantity})`)
+            return;
         }
 
         // update product list immutably 
@@ -83,14 +84,15 @@ const CheckoutForm = ({
                             placeholder='Search product' />
                         {results.length > 0 ?
                             <ul>{results.map((result) => <li key={result.id}><a onClick={() => {
-                                onCheckout(result)
-                            setSearchInput('')}} >
+                                onCheckout(result);
+                                setSearchInput('');
+                            }}>
                                 {result.name} - Stock: {result.quantity}</a></li>)}</ul> : 
                             searchInput.trim() !== '' ? (
                             <p>No results found</p>
                         ) : (
-                            
-                            '' )}
+                            ''
+                        )}
                     </div>
                 )}
 
